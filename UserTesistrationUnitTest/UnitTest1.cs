@@ -107,5 +107,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Password Should Have Minimum 8 Charactres!", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenPasswordUpperCase_ThrowInvalidPasswordException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidatePassword2("Arun@123");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Password Should Have UpperCase Letter", ex.Message);
+            }
+        }
     }
 }
