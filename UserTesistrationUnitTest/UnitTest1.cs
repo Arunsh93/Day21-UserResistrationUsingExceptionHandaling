@@ -87,5 +87,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Invalid Phone Number", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenPassword_ThrowInvalidPasswordException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidatePassword("Arun@123");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Password Should Have Minimum 8 Charactres!", ex.Message);
+            }
+        }
     }
 }
