@@ -47,5 +47,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Invalid Last Name", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenEmailId_ThrowInvalidEmailidException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidateEmaild("abc.xyz@bl.co.in");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Invalid EmailID", ex.Message);
+            }
+        }
     }
 }
