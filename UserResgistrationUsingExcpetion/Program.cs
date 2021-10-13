@@ -15,6 +15,10 @@ namespace UserResgistrationUsingExcpetion
             Console.WriteLine("Enter Last Name:");
             string lastName = Console.ReadLine();
             Console.WriteLine("Last Name:" + userResistration.ValidateLastName(lastName));
+
+            Console.WriteLine("Enter EmailId:");
+            string emailId = Console.ReadLine();
+            Console.WriteLine("Email-Id:" + userResistration.ValidateEmaild(emailId));
         }
     }
 }
