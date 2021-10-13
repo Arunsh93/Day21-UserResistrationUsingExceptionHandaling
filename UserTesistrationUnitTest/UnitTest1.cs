@@ -127,5 +127,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Password Should Have UpperCase Letter", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenPasswordhaveNumericNumber_ThrowInvalidPasswordException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidatePassword3("ABC123@!");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Password Should Have 1 Numeric Number", ex.Message);
+            }
+        }
     }
 }
