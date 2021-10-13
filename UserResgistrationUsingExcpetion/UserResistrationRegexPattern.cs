@@ -14,6 +14,7 @@ namespace UserResgistrationUsingExcpetion
         public static string RegexPassword1 = "^[A-Za-z0-9.@!#$&]{8,}$";
         public static string RegexPassword2 = "^(?=.*[A-Z])[A-Za-z0-9.@!#$&]{8,}$";
         public static string RegexPassword3 = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9.@!#$&]{8,}$";
+        public static string RegexPassword4 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@!#$&])[A-Za-z0-9.@!#$&]{8,}$";
 
         public bool ValidateFirstName(string firstName)
         {
@@ -73,6 +74,15 @@ namespace UserResgistrationUsingExcpetion
             if (!Regex.IsMatch(Password3, RegexPassword3))
             {
                 throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have 1 Numeric Number");
+            }
+            return true;
+        }
+
+        public bool ValidatePassword4(string Password4)
+        {
+            if (!Regex.IsMatch(Password4, RegexPassword4))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have 1 Special Character");
             }
             return true;
         }
