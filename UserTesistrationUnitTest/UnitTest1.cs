@@ -67,5 +67,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Invalid EmailID", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenPhoneNumber_ThrowInvalidPhoneNumberException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidatePhoneNumber("91 9620692457");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Invalid Phone Number", ex.Message);
+            }
+        }
     }
 }
