@@ -13,6 +13,7 @@ namespace UserResgistrationUsingExcpetion
         public static string RegexPhoneNumber = "^[0-9]{2}[ ][0-9]{10}$";
         public static string RegexPassword1 = "^[A-Za-z0-9.@!#$&]{8,}$";
         public static string RegexPassword2 = "^(?=.*[A-Z])[A-Za-z0-9.@!#$&]{8,}$";
+        public static string RegexPassword3 = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9.@!#$&]{8,}$";
 
         public bool ValidateFirstName(string firstName)
         {
@@ -63,6 +64,15 @@ namespace UserResgistrationUsingExcpetion
             if (!Regex.IsMatch(Password2, RegexPassword2))
             {
                 throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have UpperCase Letter");
+            }
+            return true;
+        }
+
+        public bool ValidatePassword3(string Password3)
+        {
+            if (!Regex.IsMatch(Password3, RegexPassword3))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have 1 Numeric Number");
             }
             return true;
         }
