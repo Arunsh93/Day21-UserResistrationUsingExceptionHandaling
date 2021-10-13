@@ -19,6 +19,10 @@ namespace UserResgistrationUsingExcpetion
             Console.WriteLine("Enter EmailId:");
             string emailId = Console.ReadLine();
             Console.WriteLine("Email-Id:" + userResistration.ValidateEmaild(emailId));
+
+            Console.WriteLine("Enter Phone Number:");
+            string phoneNumber = Console.ReadLine();
+            Console.WriteLine("Email-Id:" + userResistration.ValidatePhoneNumber(phoneNumber));
         }
     }
 }
