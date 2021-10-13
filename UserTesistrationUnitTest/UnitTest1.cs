@@ -147,5 +147,24 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Password Should Have 1 Numeric Number", ex.Message);
             }
         }
+        [TestMethod]
+        public void GivenPasswordhaveSpecialCharacter_ThrowInvalidPasswordException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidatePassword4("Arunsh@123");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Password Should Have 1 Special Character", ex.Message);
+            }
+        }
     }
 }
