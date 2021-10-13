@@ -166,5 +166,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Password Should Have 1 Special Character", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenSampleEmailId_ThrowInvalidEmailidException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidateSampleEmailId("null");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Invalid EmailId", ex.Message);
+            }
+        }
     }
 }
