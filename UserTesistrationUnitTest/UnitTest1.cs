@@ -27,5 +27,25 @@ namespace UserTesistrationUnitTest
                 Assert.AreEqual("Invalid First Name", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void GivenLastName_ThrowInvalidNameException()
+        {
+            try
+            {
+                //Arrange
+                bool Expected = true;
+
+                //Action
+                bool Actual = userMatch.ValidateLastName("123hosur");
+
+                //Assert
+                Assert.AreEqual(Expected, Actual);
+            }
+            catch (UserRegistrationCustomException ex)
+            {
+                Assert.AreEqual("Invalid Last Name", ex.Message);
+            }
+        }
     }
 }
