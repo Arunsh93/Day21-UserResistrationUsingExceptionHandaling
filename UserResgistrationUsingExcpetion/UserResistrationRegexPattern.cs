@@ -15,6 +15,7 @@ namespace UserResgistrationUsingExcpetion
         public static string RegexPassword2 = "^(?=.*[A-Z])[A-Za-z0-9.@!#$&]{8,}$";
         public static string RegexPassword3 = "^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9.@!#$&]{8,}$";
         public static string RegexPassword4 = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@!#$&])[A-Za-z0-9.@!#$&]{8,}$";
+        public static string UC9RegexEmailId = "^[A-Za-z0-9]+([-.+][0-9]+)?[0-9]*[@][A-Za-z0-9]+[.][a-zA-Z]{2,}([.][a-z]{2,})?$";
 
         public bool ValidateFirstName(string firstName)
         {
@@ -83,6 +84,14 @@ namespace UserResgistrationUsingExcpetion
             if (!Regex.IsMatch(Password4, RegexPassword4))
             {
                 throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have 1 Special Character");
+            }
+            return true;
+        }
+        public bool ValidateSampleEmailId(string UC9Emailid)
+        {
+            if (!Regex.IsMatch(UC9Emailid, UC9RegexEmailId))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Invalid EmailId");
             }
             return true;
         }
