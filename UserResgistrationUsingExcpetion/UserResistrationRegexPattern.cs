@@ -11,6 +11,7 @@ namespace UserResgistrationUsingExcpetion
         public static string RegexLastName = "^[a-zA-Z]{1}[a-z]{2,}";
         public static string RegexEmailId = "^abc.[A-Za-z1-9]*@bl.co.[a-z]*$";
         public static string RegexPhoneNumber = "^[0-9]{2}[ ][0-9]{10}$";
+        public static string RegexPassword = "^[A-Za-z0-9.@!#$&]{8,}$";
 
         public bool ValidateFirstName(string firstName)
         {
@@ -43,6 +44,15 @@ namespace UserResgistrationUsingExcpetion
             if (!Regex.IsMatch(PhoneNumber, RegexPhoneNumber))
             {
                 throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Invalid Phone Number");
+            }
+            return true;
+        }
+
+        public bool ValidatePassword(string Password)
+        {
+            if (!Regex.IsMatch(Password, RegexPassword))
+            {
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_ENTER, "Password Should Have Minimum 8 Charactres!");
             }
             return true;
         }

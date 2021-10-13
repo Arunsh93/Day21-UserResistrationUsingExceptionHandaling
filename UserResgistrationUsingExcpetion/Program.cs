@@ -23,6 +23,11 @@ namespace UserResgistrationUsingExcpetion
             Console.WriteLine("Enter Phone Number:");
             string phoneNumber = Console.ReadLine();
             Console.WriteLine("Email-Id:" + userResistration.ValidatePhoneNumber(phoneNumber));
+
+            Console.WriteLine("Enter Password:");
+            string password = Console.ReadLine();
+            Console.WriteLine("Password:" + userResistration.ValidatePassword(password));
+
         }
     }
 }
